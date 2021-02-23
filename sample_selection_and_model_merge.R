@@ -1,7 +1,7 @@
 #Sample Selection
 #Kristin A. Murtha
 
-setwd('~/Desktop/nback_adversity/raw_data')
+setwd('/cbica/projects/Kristin_CBF/nback_adversity/raw_data')
 
 library(dplyr)
 '%ni%' <- Negate('%in%')
@@ -85,5 +85,5 @@ model<- model %>% rename(bblid = sample_bblid)
 #Now merge in additional fields and write out a CSV
 model<-  Reduce(function(x,y)  merge(x, y, by = 'bblid', all.x=TRUE,all.y=TRUE), list(model, model_demos, model_qa, model_trauma, model_nback))
 
-write.csv(model, file='model.csv', row.names=FALSE)
+write.csv(model, file='../model.csv', row.names=FALSE)
 
