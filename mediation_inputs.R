@@ -1,10 +1,9 @@
-# mediation inputs take 2
-
+# split sample (script adpted from BBL tutorials) and create inputs for mediation analysis 
 require('caret')
 set.seed(1234)
 
 #reading in the model data (bblid, demographics, SES + DPRIME) 
-setwd('~/Desktop/nback_adversity/final_code')
+setwd('/cbica/projects/Kristin_CBF/nback_adversity/')
 model<- read.csv('model.csv')
 
 library(ANTsR)
@@ -41,10 +40,11 @@ m2<-sample_2[-c(1:8)]
 m2<-as.matrix(m2)
 
 #write out files
+create.dir('Mediation')
 
-write.table(x1, file='x1.csv', row.names=FALSE, col.names=FALSE)
-write.table(y1, file='y1.csv', row.names=FALSE, col.names=FALSE)
-write.table(m1, file='m1.csv', row.names=FALSE, col.names=FALSE)
+write.table(x1, file='/Mediation/x1.csv', row.names=FALSE, col.names=FALSE)
+write.table(y1, file='/Mediation/y1.csv', row.names=FALSE, col.names=FALSE)
+write.table(m1, file='/Mediation/m1.csv', row.names=FALSE, col.names=FALSE)
 
 write.table(x2, file='x2.csv', row.names=FALSE, col.names=FALSE)
 write.table(y2, file='y2.csv', row.names=FALSE, col.names=FALSE)
@@ -60,4 +60,3 @@ sum<-summary(pca)
 PCAscores <- pca$x
 PCAloadings <- pca$rotation
 PCAimportance<- sum$importance
-
