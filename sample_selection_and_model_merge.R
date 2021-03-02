@@ -63,8 +63,8 @@ sample_demos$race3<-recode(sample_demos$race3, '3'=2, '2'=2, '1'=1)
 sample_demos$race3<- recode(sample_demos$race3, '1'=0, '2'=1)
 
 #Then select the variables of interest to be merged into our model 
-age_sex_race<- c("bblid", "ageAtScan1","sex", "race3")
-model_demos<- sample_demos[age_sex_race]
+age_sex_race_edu<- c("bblid", "ageAtScan1","sex", "race3","medu1","fedu1")
+model_demos<- sample_demos[age_sex_race_edu]
 
 #Next, do the same with motion measures
 motion<- c("bblid", "nbackRelMeanRMSMotion")
